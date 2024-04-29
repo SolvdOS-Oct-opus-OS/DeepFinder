@@ -1,0 +1,25 @@
+{
+  "D;": {'Image': {'Jeux': {'StarCitizen': ['PortOlisar','RaceRaze','NewBabage'],
+                            'ScrapMecanique': ['razor','Nox','UrsaRover']}},
+
+         'Téléchargment': {'launcher':['Autodesk','Krita','AdobeSound']},
+
+         'Document': {'Cours': {'Ba1': {'Physique': ['Thermo','ElectroStat','MagnétoStat'],
+                                        'Chimie': ['AcideBase','Redox','Equilibre'],
+                                        'Algèbre': ['Groupes_Corps','Espace_Vectorielle']},
+                                'Ba2': {'Analyse': ['Suite_Série'],
+                                        'Anglais': ['Module2','Module4']}},
+                      'Pro': {'Conception': ['3Dscane_plane','Manthis','Athéna','Ariane']},
+                      },
+
+         'Archive': {'image':['ssfdQDddDdqd.PNG','Italie.jpg','MontBlancKeket.gif'],
+                     'Document': {'Cours': ['noteDeLectur2.pdf']}}},
+
+  "C;": {'programme': {'progX32': ['Tetrice','Horloge','link_with_windows'],
+                       'progX64': ['Notion','Chrome','Steam'],
+                       'progX86': ['Fusion','StarCitizen','Blender']},
+
+         'Système': {'Driver': ['USB_COM','HDMI_COM','AMD_Radeon','Display15','PuceWIFI','Fence','Controleur_de_stockage']},
+
+        }
+}
