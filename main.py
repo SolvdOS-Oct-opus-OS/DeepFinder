@@ -8,8 +8,7 @@ with open('Repertoir.json5', encoding='UTF-8') as lib:
 
 
 liste = ['Thermo','ElectroStat','MagnétoStat','ssfdQDddDdqd.PNG',
-         'Italie.jpg','MontBlancKeket.gif','Tetrice',
+         'Italie.jpg','MontBlancKekette.gif','Tetrice',
          'Horloge','link_with_windows']
-
 print(SershingDos(dico,'link_with_windows'))
-print(SearshingWord(liste,"MontBlanc"))
+print(SearshingWord(liste,"Hor"))
