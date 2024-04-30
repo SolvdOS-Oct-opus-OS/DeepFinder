@@ -46,6 +46,8 @@ def deepFind(Reperatorie, list_to_find):
 
 
 def SershingDos(dos, file, cycle=0, root='',listRoot =[]):
+    if cycle == 0:
+        listRoot = []
     """
     :param dos: Le dictionnaire ou la liste entrante
     :param file: Le fichier ou dossier à chercher
@@ -77,6 +79,7 @@ def SershingDos(dos, file, cycle=0, root='',listRoot =[]):
         # print ("")
 
     return file,listRoot
+
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 """
