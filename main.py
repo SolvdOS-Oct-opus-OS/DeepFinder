@@ -5,5 +5,11 @@ with open('Repertoir.json5', encoding='UTF-8') as lib:
     dico = json5.load(lib)
 
 
-to_find = ['Fusion','Ba1','Suite_Série']
-print (deepFind(dico,to_find))
+
+
+liste = ['Thermo','ElectroStat','MagnétoStat','ssfdQDddDdqd.PNG',
+         'Italie.jpg','MontBlancKeket.gif','Tetrice',
+         'Horloge','link_with_windows']
+
+print(SershingDos(dico,'link_with_windows'))
+print(SearshingWord(liste,"MontBlanc"))
