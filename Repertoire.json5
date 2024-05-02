@@ -1,5 +1,5 @@
 {
-  "D;": {'Image': {'Jeux': {'StarCitizen': ['PortOlisar','RaceRaze','NewBabage'],
+  "D;": {'Image': {'Jeux': {'StarCitizen': ['PortOlisar','RaceRazer','NewBabage'],
                             'ScrapMecanique': ['razor','Nox','UrsaRover']}},
 
          'Téléchargment': {'launcher':['Autodesk','Krita','AdobeSound']},
@@ -12,10 +12,17 @@
                       'Pro': {'Conception': ['3Dscane_plane','Manthis','Athéna','Ariane']},
                       },
 
-         'Archive': {'image':['ssfdQDddDdqd.PNG','Italie.jpg','MontBlancKeket.gif'],
+         'Archive': {'image':['ssfdQDddDdqd.PNG','Italie.jpg','MontBlancKekette.gif'],
                      'Document': {'Cours': ['noteDeLectur2.pdf']}}},
 
   "C;": {'programme': {'progX32': ['Tetrice','Horloge','link_with_windows'],
+                       'progX64': ['Notion','Chrome','Steam'],
+                       'progX86': ['Fusion','StarCitizen','Blender']},
+
+         'Système': {'Driver': ['USB_COM','HDMI_COM','AMD_Radeon','Display15','PuceWIFI','Fence','Controleur_de_stockage']},
+
+        },
+  "C2;": {'programme': {'progX32': ['Tetrice','Horloge','link_with_windows'],
                        'progX64': ['Notion','Chrome','Steam'],
                        'progX86': ['Fusion','StarCitizen','Blender']},
 
