@@ -1,49 +1,11 @@
-"""
-
-deepFind | reçois : un dictionnaire, une liste d'éléments à chercher |retourne : un dictionnaire
-        Search est une sous fonction de deepFind, elle procède à la recherche d'un élément dans un dictionnaire
-"""
-
-""" 
---------------------------------------| La v1 de la fonction qui présente encore des bug |----------------------------------------------------------------------
-"""
-
-
-def deepFind(Reperatorie, list_to_find):
-    def Search(dos, file, list_root=[], root="", key=""):
-        if root:
-            root += "/"
-        if key:
-            root += str(key)
-
-        if type(dos) == dict:
-            for dos_in in dos:
-                if dos_in == file:
-                    list_root.append(root)
-                Search(dos[dos_in], file, list_root, root, dos_in)
-
-        if type(dos) == list:
-            for file_in in dos:
-                if file_in == file:
-                    list_root.append(root)
-
-        return list_root
-
-    lib_root = {}
-    for element in list_to_find:
-        ens = []
-        if Search(Reperatorie, element, ens):
-            lib_root[element] = Search(Reperatorie, element, ens)
-        else:
-
-            lib_root[element] = 'ERROR: FILE NOT FOUND'
-    return lib_root
-
+import turtle
+from turtle import *
+import sys
+sys.setrecursionlimit(5000)
 
 """
 ---------------------------------------------------------------| La v2 de la fonction deepFind, en cours de dev |------------------------------------------------------------
 """
-
 
 def SearchingDos(dos, file, cycle=0, root='', listRoot =[]):
     if cycle == 0:
@@ -65,27 +27,20 @@ def SearchingDos(dos, file, cycle=0, root='', listRoot =[]):
             root_in = root + dos_in + "/"
 
             if str(dos_in) == str(file):
-                #print(root)
                 listRoot.append(root_in)
-            # print (dos_in,cycle,root_in)
             SearchingDos(dos[dos_in], file, cycle, root_in, listRoot)
 
     if type(dos) == list:
         for dos_in in dos:
-            # print (dos_in,cycle,root)
             if str(dos_in) == str(file):
-                #print(root)
                 listRoot.append(root)
-        # print ("")
 
     return file,listRoot
 
-
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 """
-simWordCoef |Une fonction qui analyse le pourcentage de similarité de deux mots
+simWordCoef |Une fonction qui analyse le pourcentage de similarité de deux mots, pour cela on compare le nombre de lettre en commun
 """
-
 
 def sameWordCoef(word, sameWord):
     """
@@ -104,13 +59,11 @@ def sameWordCoef(word, sameWord):
         if char not in charCheck:
             charCheck.append(char)
             if char in sameWord:
-                # print(char,'OK')
                 if word.count(char) <= sameWord.count(char):
                     nb += word.count(char)
                 elif word.count(char) > sameWord.count(char):
                     nb += sameWord.count(char)
     return nb / len(word)
-
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -140,7 +93,7 @@ def SearshingWord(ListWords, Word):
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 """
-listingFile | Reçoit un dossier/dictionnaire, |Retourne un liste contenant la totalité des fichier dans le répertoire
+listingFile | Reçoit un dossier/dictionnaire | Retourne un liste contenant la totalité des fichier dans le répertoire
 """
 def listingFile (dos,cycle=0,listingFiling = []):
     if cycle == 0:
@@ -153,9 +106,7 @@ def listingFile (dos,cycle=0,listingFiling = []):
 
     if type(dos) == list:
         for dos_in in dos:
-            #print (dos_in,cycle)
             listingFiling.append(dos_in)
-        # print ("")
 
     return listingFiling
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -168,7 +119,6 @@ def listingDos (dos,cycle=0,listingdosing = []):
     cycle+=1
     if type(dos)==dict:
         for dos_in in dos:
-            #print (dos_in)
             listingdosing.append(dos_in)
             listingDos(dos[dos_in],cycle,listingdosing)
 
@@ -180,7 +130,7 @@ def listingDosFIle (dos):
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
 
 """
-sameCharGroupe
+sameCharGroupe | Reçois deux mots | Retourne les groupes de characters en commun des deux mots
 """
 def sameCharGroupe (word1, word2):
     wo1 = ""
@@ -192,7 +142,7 @@ def sameCharGroupe (word1, word2):
         for ii in range(i,len(word1)):
             wo1 += word1[ii]
             if wo1 in word2.lower() and not (len(wo1)<len(wo2)):
-                #print(wo1,'OK')
+
                 wo2 = wo1
                 Check1 = True
             else:
@@ -208,15 +158,15 @@ def sameCharGroupe (word1, word2):
     return listeWord,len(listeWord)
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------
-
-def outword(word, dos):
+""" 
+outword |Reçois un mots et une liste de mots | Retourne le mot le plus proche selon lui 
+"""
+def outword(word, Base):
     ListeDosFile_checked = []
-    ListeDosFile= listingDosFIle(dos)
+    ListeDosFile= Base
     for name_checked in ListeDosFile:
         if name_checked not in ListeDosFile_checked:
             ListeDosFile_checked.append(name_checked)
-
-
 
     outWord= None
     outCharGroupe = []
@@ -244,7 +194,7 @@ def outword(word, dos):
     word_in_check_longueur_out=""
     if check:
         for word_in in outCharGroupe_check:
-            #print(sameCharGroupe(word, word_in)[0][0],word_in_check,sameCharGroupe(word, word_in)[1])
+
             if len(sameCharGroupe(word,word_in)[0][0]) > len( word_in_check):
                 word_in_check = sameCharGroupe(word, word_in)[0][0]
                 word_in_check_longueur_out = word_in
@@ -252,7 +202,7 @@ def outword(word, dos):
         indice_check = 0
         indice_check_word = []
         for word_in2 in outCharGroupe:
-            #print(word_in2[2], indice_check)
+
             if word_in2[2] > indice_check:
                 indice_check_word=[word_in2[0]]
                 indice_check = word_in2[2]
@@ -284,3 +234,102 @@ def outword(word, dos):
 
     return outWord
 
+
+# --------------------------------------------------------------------------------------------------------------------------------------------------------
+"""SearchInBase |Reçois un dictionnaire et une liste des sous dictionnaire ainsi que des mots que contient le 
+                 dictionnaire principale | Affiche les roots d'accès au dossier appelé dans l'interface
+              
+"""
+def SearchInBase (dos,DataBase):
+    word = ''
+    while 'stop_run' not in word.lower():
+        word = input('\n |-------------------------------------------------------------'
+                     '\n Entrée |Stop_run| pour arrêter \n \n Que chercher vous ? : ')
+        if 'stop_run' not in word.lower():
+            Input = outword(word, DataBase)
+
+            for name in Input[0]:
+                if name != 'WORD NOT FOUND':
+                    print(SearchingDos(dos, name))
+
+                else:
+                    print('WORD NOT FOUND')
+
+            if Input[1] == False:
+                print('ATTENTION, Recherche imprecise')
+
+def drawDos (dos, dist=100, alpha=120, cycle=0, cl='black'):
+
+    speed(1200)
+    if cycle == 0:
+        dot(20, 'black')
+        angle  = 360/(len(dos))
+        colors =['cyan','#ff00b7','#00d924','#ff5900','#ff38ca','#9e07f0','#288bed','#00ffff']
+        nb = 0
+        for dos_in in dos :
+            color(colors[nb])
+
+            forward(dist)
+            write(dos_in)
+
+            drawDos(dos[dos_in], dist - 5 * cycle, alpha, cycle+1, colors[nb])
+            nb += 1
+            backward(dist)
+            right(angle)
+
+    else:
+        if type(dos)== list:
+            if len(dos) >1:
+                left(alpha/2)
+                angle = alpha/(len(dos)-1)
+                nbi = 0
+                for dos_in in dos:
+                    forward(dist)
+                    right(alpha/2 - nbi * angle)
+                    forward(dist)
+                    write(dos_in)
+                    backward(dist)
+                    left(alpha/2 - nbi * angle)
+                    nbi += 1
+                    backward(dist)
+                    right(angle)
+                left(alpha/2+angle)
+
+            else:
+                for dos_in in dos :
+                    forward(dist)
+                    write(dos_in)
+                    backward(dist)
+
+        elif type(dos) == dict:
+            if len(dos)>1:
+                left (alpha/2)
+                angle = alpha/(len(dos)-1)
+                nbi = 0
+                for dos_in in dos:
+                    forward(dist)
+                    right(alpha/2-nbi*angle)
+                    forward(dist)
+                    dot(10,cl)
+                    txt = dos_in + ','+str(cycle)
+                    write(txt)
+
+
+                    drawDos(dos[dos_in], dist - 5 * cycle+1, alpha, cycle+1, cl)
+                    backward(dist)
+                    left(alpha/2-nbi*angle)
+                    nbi += 1
+                    backward(dist)
+                    right(angle)
+
+                left(alpha/2+angle)
+
+            else:
+
+                for dos_in in dos:
+                    forward(dist)
+                    txt = dos_in+','+str(cycle)
+                    write(txt)
+
+                    drawDos(dos[dos_in], dist - 5 * cycle, alpha, cycle+1, cl)
+                    backward(dist)
