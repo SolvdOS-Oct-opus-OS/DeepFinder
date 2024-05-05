@@ -19,9 +19,8 @@ with open('Repertoir.json5', encoding='UTF-8') as lib:
 print(SearchingDos(dico,'Driver'))
 
 
-print(SearchingDos(dico,'Driver'))
 turtle.bgcolor('black')
-#drawDos(dico, 80, 120)
+drawDos(dico, 80, 120)
 mainloop()
 
 
